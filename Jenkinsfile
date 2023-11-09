@@ -12,22 +12,19 @@ pipeline {
     }
   }
    stage("Checkout from SCM"){
-                steps {
-                    git branch: 'main', credentialsId: 'github', url: 'https://github.com/editorawais/registration-app'
+        steps {
+            git branch: 'main', credentialsId: 'github', url: 'https://github.com/editorawais/registration-app'
                 }
         }
    stage("Build Application"){
             steps {
                 sh "mvn clean package"
             }
-
-       }
+ }
    stage("Test Application"){
            steps {
                  sh "mvn test"
            }
-       }
-
-	
+       }	
 }
 
